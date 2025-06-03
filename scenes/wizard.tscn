@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://c822wqwfedvr4"]
+
+[ext_resource type="Texture2D" uid="uid://s7m21j4r1k4i" path="res://assets/rogues.png" id="1_a45yx"]
+[ext_resource type="Texture2D" uid="uid://bmielkw2l2ou7" path="res://assets/Free Smoke Fx  Pixel 05.png" id="2_xbyme"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5fd6h"]
+size = Vector2(28, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lvu8n"]
+atlas = ExtResource("2_xbyme")
+region = Rect2(128, 704, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ie2v"]
+atlas = ExtResource("2_xbyme")
+region = Rect2(192, 704, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy8fs"]
+atlas = ExtResource("2_xbyme")
+region = Rect2(256, 704, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p2gu8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lvu8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ie2v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jy8fs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Wizard" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture_filter = 1
+texture = ExtResource("1_a45yx")
+region_enabled = true
+region_rect = Rect2(31.4943, 128.296, 34.362, 32.0904)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_5fd6h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-1, 14)
+sprite_frames = SubResource("SpriteFrames_p2gu8")
+autoplay = "default"
+frame_progress = 0.50375
